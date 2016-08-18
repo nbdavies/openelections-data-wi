@@ -39,7 +39,7 @@ def process_local_xls_2002_to_2010(filename):
           continue
         candidate_name =  sheet.row_values(candiate_row)[candidate]
         if (candidate_name == ''):
-          continue
+          break
         total_votes = 0
         county = sheet.row_values(i)[10]
         ward = "%s of %s %s" % (sheet.row_values(i)[11],sheet.row_values(i)[13],sheet.row_values(i)[16])
@@ -47,11 +47,14 @@ def process_local_xls_2002_to_2010(filename):
         district = str(sheet.row_values(i)[5])
         for vote in candidates:
           if (sheet.row_values(i)[vote]):
+#           print "Bad value? %s" % sheet.row_values(i)[vote]
             total_votes += sheet.row_values(i)[vote]
         party = sheet.row_values(candiate_row+1)[candidate]
         votes = sheet.row_values(i)[candidate]
         row = [county,ward,office,district,total_votes,party,candidate_name,votes]
         results.append(row)
+      if candidate_name == '':
+        break
     return [results]
 
 def process_local(filename):
@@ -455,6 +458,8 @@ small_test_set = [404, 407, 408, 419, 1659, 1573, 1574, 1575, 1576, 1661, 1662]
 # get_all_results(small_test_set, WIOpenElectionsAPI, process_offices_test)
 # get_all_results(small_test_set, WIOpenElectionsAPI)
 
-get_all_results(working, WIOpenElectionsAPI)
+get_all_results(xls_2002_to_2010_not_tested, WIOpenElectionsAPI, process_local_xls_2002_to_2010)
 
-get_all_results(xls_2002_to_2010_working, WIOpenElectionsAPI, process_local_xls_2002_to_2010)
+# get_all_results(working, WIOpenElectionsAPI)
+
+# get_all_results(xls_2002_to_2010_working, WIOpenElectionsAPI, process_local_xls_2002_to_2010)
