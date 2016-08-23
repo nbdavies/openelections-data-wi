@@ -307,10 +307,26 @@ def parse_office(office_string):
 
 
 def parse_sheet(sheet, office):
+<<<<<<< HEAD
     parse = parse_office(office)
 #     print '{:65} {}'.format(office, parse)
     office, district, party = parse
     candidates, parties, start_row = detect_headers(sheet)
+=======
+    output = []
+    # This '–' is a different character than this '-'
+    office = office.replace('–','-')
+    list = re.split('(.*)(?: - |   |, )DISTRICT?\s{1}(\d+)\s{1}[-]?\s?(.*)', office)
+    if len(list) > 1:
+      office = list[1]
+      district = list[2]
+      party = list[3]
+    candidates, parties, start_row = detect_headers(sheet)
+    if len(office.split(",")) > 1:
+      party = district
+      district = office.split(",")[1]
+      office = office.split(",")[0]
+>>>>>>> e90a87a02504d7f056407f60281cd5edaf7ccb6d
     county = ''
     output = []
     for i in range(start_row, sheet.nrows):
