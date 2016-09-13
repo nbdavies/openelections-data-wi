@@ -64,17 +64,17 @@ Feature: WI Elections
     | Chris Kapenga             | Waukesha  | Assembly                     | Village of Summit Wards 2,3,4,5 | 1227   | 1643  |
     | Peter Flesch              | Vernon    | Assembly                     | City of Westby Wards 1 - 5      | 375    | 837   |
     | Dean P. Debroux           | Outagamie | State Senate                 | City of Appleton Ward 59        | 1      | 1     |
-    | Lawrence Dale             | Wood      | Representative               | City of Pittsville Ward 1       | 7      | 365   |
-    | Jerry Shidel              | Ashland   | State Treasurer              | City of Mellen Ward 1           | 3      | 221   |
+    | Lawrence Dale             | Wood      | Congressional                | City of Pittsville Ward 1       | 7      | 356   |
+    | Jerry Shidell             | Ashland   | State Treasurer              | City of Mellen Ward 1           | 3      | 221   |
 
   Examples: 20150623__wi__special_primary_ward.csv
     | candidate                    | county   | office       | ward                              | votes  | total |
     | Sherryll Shaddock            | Waukesha | State Senate | City of Waukesha Ward 38          | 19     | 19    |
 
   Examples: 20150901__wi__special_primary_ward.csv
-    | candidate                    | county   | office   | ward                              | votes  | total |
-    | Scattering                   | Waukesha | Assembly | Village of Oconomowoc Lake Ward 1 | 0      | 0     |
-    | Spencer Zimmerman            | Waukesha | Assembly | Town of Genesee Wards 1-5, 9 10   | 9      | 278   |
+    | candidate          | county   | office   | ward                              | votes  | total |
+    | Scattering         | Waukesha | Representative To The Assembly | Village of Oconomowoc Lake Ward 1 | 0      | 28    |
+    | Spencer Zimmerman  | Waukesha | Representative To The Assembly | Town of Genesee Wards 1-5, 9 10   | 9      | 278   |
 
   Examples: 20150929__wi__special_general_ward.csv
     | candidate                    | county   | office   | ward                           | votes  | total |
