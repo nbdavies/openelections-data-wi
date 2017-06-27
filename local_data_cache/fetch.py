@@ -1,5 +1,6 @@
 import requests
 import json
+import sys
 
 WIOpenElectionsAPI = "http://openelections.net/api/v1/election/?format=json&limit=0&state__postal=WI"
 
@@ -16,8 +17,12 @@ def update_cache(url):
   url = url.strip()
   r = requests.get(url)
   if r.status_code == 200:
-    parsed = json.loads(r.content)['objects']
-    for i in parsed:
+    parsed = json.loads(r.content)
+    if 'objects' in parsed:
+      objects = parsed['objects']
+    else:
+      objects = [parsed]
+    for i in objects:
       if i['direct_links'] == []:
         print "no results for id: ",i['id']
       else:

@@ -277,8 +277,9 @@ def parse_office(office_string):
             office = head
             district = tail
         elif head.endswith(' '):    # not a hyphenated name
-            office = head
-            party = tail
+            if not head.startswith('DISTRICT ATTORNEY'):
+                office = head
+                party = tail
     
     office = office.strip()
     party = party.replace(' PARTY', '')
