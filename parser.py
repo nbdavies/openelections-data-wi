@@ -109,7 +109,7 @@ def process_xls_2012_DA_primary(sheet): # Election 411
         print fieldname, 'not found in spreadsheet column headers:'
         print col_headers
         raise
-
+    
     results = []
     candidate_votes = []
     previous_race_place = ()
@@ -368,9 +368,16 @@ def parse_sheet(sheet, office, sheet_index):
     """
     office, district, party = parse_office(office)
     candidates, parties, start_row = extract_candidates(sheet, sheet_index)
+    offset = 0
     if sheet_index == 0 and '' in candidates:
-        del candidates[candidates.index(''):]   # truncate at first empty cell
-        ### TO DO: Process recount results after first empty cell
+        # probably this is 2011-04-05 Supreme Court election (id 421)
+        i = candidates.index('') + 1    # next after blank
+        if len(candidates) > i and candidates[i] == TOTAL_VOTES_HEADER:
+            # this is the second total votes header, for recounts
+            offset = i + 1          # of column to read recount data
+            candidates = candidates[offset:]
+            parties = parties[offset:]
+    cand_col = CAND_COL + offset    # 1st candidate is in this column
     county = ''
     output = []
     for rowx in range(start_row, sheet.nrows):
@@ -381,8 +388,8 @@ def parse_sheet(sheet, office, sheet_index):
         if col0 != '':
             county = col0
         ward = row[1].strip()
-        total_votes = row[2]
-        candidate_votes = row[CAND_COL:]
+        total_votes = row[2 + offset]
+        candidate_votes = row[cand_col:]
         for index, candidate in enumerate(candidates):
             if candidate:   # column not empty
                 party = parties[index]
@@ -413,6 +420,7 @@ WIOpenElectionsAPI = "http://openelections.net/api/v1/election/?format=json&limi
 
 # All ids from available elections.
 available_ids = [
+1761, 1755, 1748, 1711, 1710,
 1658,1659,1660,1661,
 1576,1573,1574,1575,
 1538,1539,
@@ -423,23 +431,23 @@ available_ids = [
 431,432,433,434,435,436,437,438,439,440,441,442,443,444,445,446,447,448,
 664,
 674,685,689,
-1577,1578,
-1755,1761]
+1756,
+1577,1578
+]
 
 # Elections with no files available.
-no_results_ids = [674, 685, 689,448]
+no_results_ids = [448, 664, 674, 689]
 
 # File 440 won't open in Pages, but parses fine (Google docs also works)
 
 # Election with PDF files.
 pdf_elections = [
-    422,
     437,                # PDF and excel (in zips) 
     443,
     444,                # contains both xls and pdf files
     445, 446, 447, 
-    664,
-    1711
+    685,
+    1756
 ]
 
 # Working Elections:
@@ -457,10 +465,11 @@ xls_2010_onward_working = [
     404,405,407,408,409,
     410,411,413,415,416,419,
     421,                        # Single sheet with no cover sheet, unlike others
+    422,
     424,425,
     1538,1539,1573,1574,1575,1576,
     1658,1659,1660,1661,1662,
-    1710,1748,1755,1761
+    1710,1711,1748,1755,1761
 ]
 
 # Files with offices in second column of title sheet (working):
