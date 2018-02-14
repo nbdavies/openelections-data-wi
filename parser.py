@@ -476,7 +476,7 @@ xls_2010_onward_working = [
 #   1573,1574,1576,1658,1659,1660,1661
 
 working = xls_2002_to_2010_working + xls_2002_to_2010_unfinished
-working += xls_2010_onward_working + range(1822,1851)
+working += xls_2010_onward_working + range(1822,1852)
 
 # jsonfilenames = ['1748.json', '1710.json']
 # for filename in jsonfilenames:
