@@ -8,7 +8,6 @@ import requests
 import unicodecsv as csv
 import xlrd
 import zipfile
-
 import cleaner
 
 ### Is this needed?
