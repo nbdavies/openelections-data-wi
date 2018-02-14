@@ -11,6 +11,7 @@ party_recode = {
     "Republican": "REP",
     "Wisconsin Green": "WGR",
     "Wisconsin Greens": "WGR",
+    "Greens": "WGR",
     "Wisconsin Green 2010-09-14": "WIG",  # only in 2010-09-14 primary Assembly District 77
     "Non-Partisan": "NP",
     "not applicable?": "NA"
