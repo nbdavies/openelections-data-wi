@@ -317,6 +317,12 @@ Feature: WI Elections
     | Scattering                    | Waukesha      | State Assembly                                | City of Delafield Wards 1 - 14                | 18    | 217   |
 
 
+  Examples: 20160216__wi__primary__ward.csv
+    | candidate                         | county    | office                                        | ward                                          | votes | total |
+    | JoAnne F. Kloppenburg             | Vilas     | Supreme Court                                 | TOWN OF LAND O-LAKES Ward 1                   | 81    | 196   |
+    | Larry Nelson                      | Iowa      | Iowa County Circuit Court                     | VILLAGE OF BLANCHARDVILLE Ward 2              | 6     | 14    |
+    | Daniel S. Johnson                 | Walworth  | Walworth County Circuit Court Branch 2        | TOWN OF LINN Ward 5                           | 11    | 42    |
+
   Examples: 20160405__wi__primary__ward.csv
     | party | candidate                 | county    | office                                        | ward                                          | votes | total |
     | DEM   | Uninstructed Delegation   | Milwaukee | President                                     | CITY OF SOUTH MILWAUKEE Ward 13-16            | 1     | 867   |
@@ -359,4 +365,23 @@ Feature: WI Elections
     | Brian K. Hagedorn             | Ozaukee       | Court of Appeals                              | TOWN OF BELGIUM Ward 1-3                      | 113   | 113   |
     | Guy Dutcher                   | Waushara      | Waushara County Circuit Court                 | CITY OF WAUTOMA Wards 1-3                     | 117   | 117   |
 
+  Examples: 20171219__wi__special__primary__ward.csv
+    | party | candidate                     | county        | office                                | ward                                          | votes | total |
+    | WGR   | Scattering                    | St. Croix     | State Senate                          | City of HUDSON Ward 11-12                     | 1     | 1     |
+    | DEM   | John Rocco Calabrese          | Dunn          | State Senate                          | Village of BOYCEVILLE Ward 1                  | 8     | 19    |
+    | REP   | Shannon Zimmerman             | St. Croix     | State Senate                          | Town of CYLON Ward 1                          | 11    | 40    |
+    | DEM   | JOHN TATE, II                 | Racine        | State Assembly                        | City of RACINE Ward 3                         | 176   | 336   |
+    | REP   | STEVE STANEK                  | Washington    | State Assembly                        | City of WEST BEND Wards 4-6                   | 107   | 251   |
 
+
+  Examples: 20180116__wi__special__general__ward.csv
+    | candidate                     | county        | office                                        | ward                                          | votes | total |
+    | Greta Neubauer                | Racine        | State Assembly                                | City of RACINE Ward 3                         | 100   | 100   |
+    | Dennis D. Degenhardt          | Washington    | State Assembly                                | Town of WEST BEND Wards 1-8                   | 184   | 444   |
+    | Adam Jarchow                  | Pierce        | State Senate                                  | City of RIVER FALLS Wards 6-8                 | 130   | 624   |
+
+  Examples: 20180220__wi__primary__ward.csv
+    | candidate                     | county        | office                                        | ward                                          | votes | total |
+    | Rebecca Dallet                | Taylor        | Supreme Court                                 | Town of MCKINLEY Ward 1                       | 1     | 27    |
+    | Brenda L. Yaskal              | Columbia      | Columbia County Circuit Court Judge Branch 3  | City of PORTAGE Ward 11                       | 0     | 0     |
+    | Ralph Sczygelski              | Manitowoc     | Manitowoc County Circuit Court Judge Branch 2 | City of MANITOWOC Wards 17-18,21,23-26,28     | 68    | 245   |
