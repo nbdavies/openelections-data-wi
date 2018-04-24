@@ -5,6 +5,17 @@ Feature: WI Elections
     And I search for <party> party candidate <candidate> running for <office> in the <ward> in <county>
     Then I should see <votes> out of <total>
 
+
+  Examples: 20001107__wi__general__ward.csv
+    | party | candidate                     | county        | office                            | ward                                              | votes | total |
+    | REP   | Kitty Rhoades                 | Pierce        | State Assembly                    | City of Prescott Wards 1 - 4                      | 1036  |  1759 |
+    | LIB   | Tim Peterson                  | Racine        | Senate                            | Town of Mount Pleasant Wards 7 & 8                | 8     |  1851 |
+
+  Examples: 20001107__wi__general__ward.csv
+    | candidate                             | county        | office                            | ward                                              | votes | total |
+    | Scattering                            | Lincoln       | President                         | Town of Bradley Wards 1 - 6                       | 4     |  1457 |
+
+
   Examples: 20020910__wi__primary__ward.csv
     | party | candidate                     | county        | office                            | ward                                              | votes | total |
     | DEM   | Dale Moore                    | Racine        | House                             | CITY OF RACINE Ward 30                            | 38    | 151   |
@@ -216,16 +227,18 @@ Feature: WI Elections
 
   Examples: 20120814__wi__primary__ward.csv
     | party | candidate             | county        | office                                        | ward                                          | votes | total |
+    | DEM   | Mario R. Hall         | Milwaukee     | State Assembly                                | City Of Wauwatosa Ward 24                     | 7     | 104   |
     | REP   | Al Ott                | Outagamie     | State Assembly                                | Village of Combined Locks Wards 1-4           | 263   | 368   |
-    | REP   | Michael W. Schiek     | Oneida        | District Attorney - Oneida County             | TOWN OF NOKOMIS WARDS 1 & 2                   | 70    | 117   |
-    | DEM   | John T. Chisholm      | Milwaukee     | District Attorney - Milwaukee County          | CITY OF MILWAUKEE WARD 243                    | 72    | 72    |
-    | AME   | Scattering            | Menominee     | District Attorney - Menominee-Shawano County  | TOWN OF MENOMINEE Ward 2                      | 0     | 0     |
+    | REP   | Michael W. Schiek     | Oneida        | Oneida County District Attorney               | TOWN OF NOKOMIS WARDS 1 & 2                   | 70    | 117   |
+    | DEM   | John T. Chisholm      | Milwaukee     | Milwaukee County District Attorney            | CITY OF MILWAUKEE WARD 243                    | 72    | 72    |
+    | AME   | Scattering            | Menominee     | Menominee-Shawano County District Attorney    | TOWN OF MENOMINEE Ward 2                      | 0     | 0     |
 
   Examples: 20121106__wi__general__ward.csv
-    | candidate                     | county        | office                                        | ward                                          | votes | total |
-    | Barack Obama & Joe Biden      | Chippewa      | President                                     | Town of Hallie Ward 1                         | 54    | 100   |
-    | Joseph Kexel                  | Walworth      | Senate                                        | Town of Geneva Wards 1-8                      | 77    | 2525  |
-    | Sheila Harsdorf               | Polk          | State Senate                                  | Town of Laketown Ward 1                       | 316   | 542   |
+    | party | candidate                 | county    | office                                        | ward                                          | votes | total |
+    | DEM   | Barack Obama & Joe Biden  | Chippewa  | President                                     | Town of Hallie Ward 1                         | 54    | 100   |
+    | IND   | Joseph Kexel              | Walworth  | Senate                                        | Town of Geneva Wards 1-8                      | 77    | 2525  |
+    | REP   | Sheila Harsdorf           | Polk      | State Senate                                  | Town of Laketown Ward 1                       | 316   | 542   |
+    | DEM   | Joe Dececco               | Sheboygan | Sheboygan County District Attorney            | CITY OF SHEBOYGAN FALLS Wards 1-2 & 9         | 1246  | 1265  |
 
   Examples: 20121106__wi__special__primary__ward.csv
     | party | candidate             | county        | office                                        | ward                                          | votes | total |
@@ -293,6 +306,10 @@ Feature: WI Elections
     | Guy M. Taylor                 | Lafayette     | Lafayette County Circuit Court                | CITY OF CUBA CITY Ward 5                      | 1     | 7     |
     | Catherine Q. Delahunt         | Sheboygan     | Sheboygan County Circuit Court, Branch 4      | VILLAGE OF RANDOM LAKE Wards 1 - 2            | 93    | 245   |
 
+  Examples: 20150407__wi__general__ward.csv
+    | candidate                         | county    | office                                        | ward                                          | votes | total |
+    | Kristina M. Bourget               | Marathon  | Court Of Appeals                              | VILLAGE OF KRONENWETTER Wards 6-10            | 92    | 364   |
+
   Examples: 20150407__wi__special__general__ward.csv
     | candidate                         | county    | office                                        | ward                                          | votes | total |
     | Nicholas J. Stamates (Write-in)   | Ozaukee   | State Senate                                  | VILLAGE OF SAUKVILLE Wards 1; 6-7             | 0     | 319   |
@@ -322,6 +339,7 @@ Feature: WI Elections
     | JoAnne F. Kloppenburg             | Vilas     | Supreme Court                                 | TOWN OF LAND O-LAKES Ward 1                   | 81    | 196   |
     | Larry Nelson                      | Iowa      | Iowa County Circuit Court                     | VILLAGE OF BLANCHARDVILLE Ward 2              | 6     | 14    |
     | Daniel S. Johnson                 | Walworth  | Walworth County Circuit Court Branch 2        | TOWN OF LINN Ward 5                           | 11    | 42    |
+    | Trish Baker                       | Portage   | Portage County Circuit Court, Branch 2        | TOWN OF ALBAN Ward 1                          | 40    | 107   |
 
   Examples: 20160405__wi__primary__ward.csv
     | party | candidate                 | county    | office                                        | ward                                          | votes | total |
@@ -330,7 +348,7 @@ Feature: WI Elections
   Examples: 20160405__wi__general__ward.csv
     | candidate                         | county    | office                                        | ward                                          | votes | total |
     | Paul F. Reilly                    | Sheboygan | Court of Appeals                              | VILLAGE OF RANDOM LAKE Wards 1-2              | 494   | 496   |
-    | Barbara Hart Key                  | Winnebago | Winnebago County Circuit Court Branch 3       | CITY OF MENASHA Wards 5-6,8-9,23-29,31-35,38  | 449   | 452   |
+    | Barbara Hart Key                  | Winnebago | Winnebago County Circuit Court, Branch 3      | CITY OF MENASHA Wards 5-6,8-9,23-29,31-35,38  | 449   | 452   |
     | Rebecca G. Bradley                | Chippewa  | Supreme Court                                 | TOWN OF GOETZ Ward 3                          | 4     | 4     |
 
   Examples: 20160809__wi__primary__ward.csv
@@ -353,9 +371,9 @@ Feature: WI Elections
   Examples: 20170221__wi__primary__ward.csv
     | candidate                     | county        | office                                        | ward                                          | votes | total |
     | John Humphries                | Crawford      | State Superintendent of Public Instruction    | CITY OF PRAIRIE DU CHIEN Wards 2,7            | 6     | 55    |
-    | Malia Malone                  | Polk          | Polk County Circuit Court Branch 1            | VILLAGE OF TURTLE LAKE Wards 2A,2B            | 7     | 8     |
+    | Malia Malone                  | Polk          | Polk County Circuit Court, Branch 1           | VILLAGE OF TURTLE LAKE Wards 2A,2B            | 7     | 8     |
     | Charles V. Feltes             | Trempealeau   | Trempealeau County Circuit Court              | VILLAGE OF ELEVA Ward 1                       | 8     | 52    |
-    | Patricia Koppa                | Manitowoc     | Manitowoc County Circuit Court Branch 3       | CITY OF TWO RIVERS Wards 3-4                  | 75    | 205   |
+    | Patricia Koppa                | Manitowoc     | Manitowoc County Circuit Court, Branch 3      | CITY OF TWO RIVERS Wards 3-4                  | 75    | 205   |
     | Lowell E. Holtz               | Rock          | State Superintendent Of Public Instruction    | CITY OF BRODHEAD Wards 7-8                    | 0     | 5     |
 
   Examples: 20170404__wi__general__ward.csv

@@ -128,13 +128,17 @@ def process_xls_2012_DA_primary(sheet):     # election id 411
         row = sheet.row_values(rowx)
         office, county, candidate, ward, votes = [
                                     row[col] for col in fieldindexes]
-        head, _, tail = office.rstrip().rpartition(' - ')
-        if len(tail) == 3:
-            office, party = head, tail
-        else:
-            party = ''
-        district = ''
+        # split office and party, reorder office
+        parts = office.split(' - ')
+        assert len(parts) == 3
+        da, da_county, party = parts
+        assert da == 'District Attorney'
+        da_county = da_county.rstrip(' ')
+        assert da_county.endswith(' County')
+        office = da_county + ' ' + da       # ____ County District Attorney
+        assert party in cleaner.party_recode.values()
 
+        district = ''
         race_place = county, ward, office, district, party
         if previous_race_place and (race_place != previous_race_place):
             results.extend(collect_results(
@@ -188,7 +192,7 @@ def get_offices(sheet):
     return offices, sheet_index
 
 
-def process(filename):
+def process(filename, election):
     try:
         xlsfile = xlrd.open_workbook(filename)
     except IOError as exc:
@@ -217,7 +221,7 @@ def process(filename):
         offices, sheet_index = get_offices(sheet0)
         for office in offices:
             sheet = xlsfile.sheet_by_index(sheet_index)
-            results.append(parse_sheet(sheet, office, sheet_index))
+            results.append(parse_sheet(sheet, office, sheet_index, election))
             sheet_index += 1
     return results
 
@@ -251,7 +255,7 @@ def get_election_result(election):
     for direct_link in direct_links:
         infilename = os.path.basename(direct_link)
         cached_filename = os.path.join('local_data_cache', 'data', infilename)
-        results = process_file(cached_filename)
+        results = process_file(cached_filename, election)
         for result in results:
             for row in result:
                 row = cleaner.clean_particular(election, row)
@@ -264,7 +268,7 @@ def get_election_result(election):
         print 'No data parsed, output file removed'
 
 
-def process_file(cached_filename):
+def process_file(cached_filename, election):
     if cached_filename.lower().endswith('.pdf'):
         print '**** Skipping PDF file: ' + cached_filename
         return []
@@ -275,12 +279,12 @@ def process_file(cached_filename):
         results = []
         for filename in os.listdir('tmp/'):
             local_file = 'tmp/' + filename
-            results = results + process_file(local_file)
+            results = results + process_file(local_file, election)
             os.remove(local_file)
         return results
     else: # Excel file
         print 'Opening ' + cached_filename
-        return process(cached_filename)
+        return process(cached_filename, election)
 
 
 def open_file(url, filename):
@@ -372,20 +376,31 @@ def parse_office(office_string):
         if tail.isdigit():
             office = head
             district = tail
+        elif tail.endswith(' COUNTY'):      # id 409, 2012-11-06 D.A.
+            head = head.strip()
+            assert head == 'DISTRICT ATTORNEY'
+            office = tail + ' ' + head      # ____ County District Attorney 
         elif head.endswith(' '):    # not a hyphenated name
             office = head
             party = tail
     
     office = office.strip()
     party = party.replace(' PARTY', '')
+    party = party.strip('0123456789-')      # remove years appended to office
     return office, district, party
 
 
-def parse_sheet(sheet, office, sheet_index):
+def parse_sheet(sheet, office, sheet_index, election):
     """Return list of records for (string) office, extracted from spreadsheet.
         This is used to parse Fall 2010 and later elections.
     """
     office, district, party = parse_office(office)
+    if party and election['race_type'] == 'general':
+        print '##### Warning: skipping sheet "{}"'.format(sheet.name),
+        print 'in general election: party in office name indicates primary'
+        print  '    {} (id {})'.format(election['end_date'], election['id']),
+        print office, district, party
+        return []
     candidates, parties, start_row = extract_candidates(sheet, sheet_index)
     offset = 0
     if sheet_index == 0 and '' in candidates:

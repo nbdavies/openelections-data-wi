@@ -74,6 +74,7 @@ def clean_ward(item):
 def clean_office(item):
     item = clean_string(item)
     item = item.replace(' Judge', '', 1)    # remove first occurrence
+    item = item.replace("Court Branch", "Court, Branch")
     item = item.replace("Lacrosse", "La Crosse")
     office = office_recode.get(item)
     if office is None:
@@ -128,18 +129,21 @@ def to_int(item):
 def clean_string(item):
     item = item.strip()
     item = item.replace("\n"," ")
+    item = item.replace("  "," ")
     item = item.title()
     return item
 
 
-# Here is where things get messy.
 def clean_particular(election,row):
+    """Corrections for specific elections"""
     id = election['id']
     if id in (411, 413, 1662, 1830):
-        row[1] = row[1].replace("!","1")
-    if id == 424:
-        row[2] = row[2].replace(" - 2011-2017","")
+        row[1] = row[1].replace("!","1")                # ward
+    if id == 411:
+        row[6] = row[6].replace("   "," ")              # candidate
+    elif id == 424:
+        row[2] = row[2].replace(" - 2011-2017","")      # office
     elif id == 1662:
-        row[2] = row[2].replace("RECALL ","")
+        row[2] = row[2].replace("RECALL ","")           # office
     return row
 
