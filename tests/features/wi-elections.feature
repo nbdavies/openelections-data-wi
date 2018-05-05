@@ -277,10 +277,18 @@ Feature: WI Elections
 
 
   Examples: 20140812__wi__primary__ward.csv
-    | candidate                     | county        | office                                        | ward                                          | votes | total |
-    | Mary Burke                    | Brown         | Governor                                      | Town of Holland Wards 1 - 2                   | 41    | 49    |
-    | Jerry Broitzman               | Dane          | Secretary Of State                            | City of Madison Ward 38                       | 3     | 3     |
-    | Rebecca Kleefisch             | Douglas       | Lieutenant Governor                           | Town of Brule Wards 1 & 2                     | 9     | 9     |
+    | party | candidate                         | county        | office                            | ward                                          | votes | total |
+    | DEM   | Mary Burke                        | Brown         | Governor                          | Town of Holland Wards 1 - 2                   | 41    | 49    |
+    | CON   | Jerry Broitzman                   | Dane          | Secretary Of State                | City of Madison Ward 38                       | 3     | 3     |
+    | REP   | Rebecca Kleefisch                 | Douglas       | Lieutenant Governor               | Town of Brule Wards 1 & 2                     | 9     | 9     |
+    | REP   | Paul Ryan                         | Kenosha       | House                             | CITY OF KENOSHA WARD87                        | 66    | 77    |
+    | REP   | Reid J. Ribble                    | Winnebago     | House                             | TOWN OF WOLF RIVER Wards 2B and 2C               | 22    | 22    |
+    | DEM   | Kathleen Vinehout                 | Trempealeau   | State Senate                      | VILLAGE OF ETTRICK Ward 1                        | 79    | 79    |
+    | REP   | Dane Deutsch                      | Douglas       | State Senate                      | CITY OF SUPERIOR Wards 23 - 26 and 27 - 29     | 81    | 81    |
+    | CON   | Scattering                        | Sauk          | State Senate                      | TOWN OF PRAIRIE DU SAC WARDS 1-2, COMBINED       | 0     | 0     |
+    | DEM   | Daniel Riemer                     | Milwaukee     | State Assembly                    | VILLAGE OF WEST MILWAUKEE WARDS - 1, 2 & 5    | 94    | 94    |
+    | DEM   | Scattering                        | Fond Du Lac   | State Assembly                    | VILLAGE OF KEWASKUM WD 6                 | 0     | 0     |
+    | REP   | Adam Jarchow                      | Polk          | State Assembly                    | VILLAGE OF BALSAM LAKE Wards 1-2                | 37    | 37    |
 
   Examples: 20141104__wi__general__ward.csv
     | candidate                     | county        | office                                        | ward                                          | votes | total |
@@ -299,7 +307,7 @@ Feature: WI Elections
     | DEM   | Nicholas J. Stamates (Write-in)   | Sheboygan     | State Senate                      | VILLAGE OF WALDO Ward 1                       | 0     | 0     |
     | CON   | Scattering                        | Fond du Lac   | State Senate                      | VILLAGE OF KEWASKUM WD 6                      | 0     | 0     |
 
-  Examples: 20150217__wi__special__primary__ward.csv
+  Examples: 20150217__wi__primary__ward.csv
     | candidate                     | county        | office                                        | ward                                          | votes | total |
     | Michelle Greendeer (write-in) | Jackson       | Jackson County Circuit Court                  | TOWN OF KOMENSKY Ward 1                       | 45    | 64    |
     | Candice C. M. Tlustosch       | La Crosse     | La Crosse County Circuit Court, Branch 5      | VILLAGE OF WEST SALEM Wards 1-6               | 139   | 289   |
@@ -338,7 +346,7 @@ Feature: WI Elections
     | candidate                         | county    | office                                        | ward                                          | votes | total |
     | JoAnne F. Kloppenburg             | Vilas     | Supreme Court                                 | TOWN OF LAND O-LAKES Ward 1                   | 81    | 196   |
     | Larry Nelson                      | Iowa      | Iowa County Circuit Court                     | VILLAGE OF BLANCHARDVILLE Ward 2              | 6     | 14    |
-    | Daniel S. Johnson                 | Walworth  | Walworth County Circuit Court Branch 2        | TOWN OF LINN Ward 5                           | 11    | 42    |
+    | Daniel S. Johnson                 | Walworth  | Walworth County Circuit Court, Branch 2        | TOWN OF LINN Ward 5                           | 11    | 42    |
     | Trish Baker                       | Portage   | Portage County Circuit Court, Branch 2        | TOWN OF ALBAN Ward 1                          | 40    | 107   |
 
   Examples: 20160405__wi__primary__ward.csv
