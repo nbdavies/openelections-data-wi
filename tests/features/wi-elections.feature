@@ -307,7 +307,7 @@ Feature: WI Elections
     | DEM   | Nicholas J. Stamates (Write-in)   | Sheboygan     | State Senate                      | VILLAGE OF WALDO Ward 1                       | 0     | 0     |
     | CON   | Scattering                        | Fond du Lac   | State Senate                      | VILLAGE OF KEWASKUM WD 6                      | 0     | 0     |
 
-  Examples: 20150217__wi__primary__ward.csv
+  Examples: 20150217__wi__special__primary__ward.csv
     | candidate                     | county        | office                                        | ward                                          | votes | total |
     | Michelle Greendeer (write-in) | Jackson       | Jackson County Circuit Court                  | TOWN OF KOMENSKY Ward 1                       | 45    | 64    |
     | Candice C. M. Tlustosch       | La Crosse     | La Crosse County Circuit Court, Branch 5      | VILLAGE OF WEST SALEM Wards 1-6               | 139   | 289   |
