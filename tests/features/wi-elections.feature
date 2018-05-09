@@ -409,5 +409,5 @@ Feature: WI Elections
   Examples: 20180220__wi__primary__ward.csv
     | candidate                     | county        | office                                        | ward                                          | votes | total |
     | Rebecca Dallet                | Taylor        | Supreme Court                                 | Town of MCKINLEY Ward 1                       | 1     | 27    |
-    | Brenda L. Yaskal              | Columbia      | Columbia County Circuit Court Judge Branch 3  | City of PORTAGE Ward 11                       | 0     | 0     |
-    | Ralph Sczygelski              | Manitowoc     | Manitowoc County Circuit Court Judge Branch 2 | City of MANITOWOC Wards 17-18,21,23-26,28     | 68    | 245   |
+    | Brenda L. Yaskal              | Columbia      | Columbia County Circuit Court Branch 3        | City of PORTAGE Ward 11                       | 0     | 0     |
+    | Ralph Sczygelski              | Manitowoc     | Manitowoc County Circuit Court Branch 2       | City of MANITOWOC Wards 17-18,21,23-26,28     | 68    | 245   |
