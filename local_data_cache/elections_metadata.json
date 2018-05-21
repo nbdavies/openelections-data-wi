@@ -139,7 +139,8 @@
          "state_leg_level": false, 
          "direct_links": [
             "http://elections.wi.gov/sites/default/files/Ward%20by%20Ward%20Results-Assembly%2058%20Special%20Election.xlsx", 
-            "http://elections.wi.gov/sites/default/files/Ward%20by%20Ward%20Results-Senate%2010%20Special%20Election.xlsx"
+            "http://elections.wi.gov/sites/default/files/Ward%20by%20Ward%20Results-Senate%2010%20Special%20Election.xlsx", 
+            "http://elections.wi.gov/sites/default/files/Ward%20by%20Ward%20Results-Assembly%2066%20Special%20Election.xlsx"
          ], 
          "state_level": false, 
          "county_level": false, 
@@ -1386,7 +1387,7 @@
          "resource_uri": "/api/v1/election/1828/"
       }, 
       {
-         "absentee_and_provisional": true, 
+         "absentee_and_provisional": false, 
          "house": false, 
          "state_level_status": "", 
          "primary_note": "", 
@@ -1410,15 +1411,18 @@
          "state_leg": false, 
          "state_leg_level": false, 
          "direct_links": [
-            "http://gab.wi.gov/sites/default/files/Ward%20Results_4.2.13%20Spring%20Election_Supt%20Public%20Inst.xls"
+            "http://elections.wi.gov/sites/default/files/Ward%20Results_4.2.13%20Spring%20Election_Circuit%20Court%20Judge.xls", 
+            "http://elections.wi.gov/sites/default/files/Ward%20Results_4.2.13%20Spring%20Election_Court%20of%20Appeals.xls", 
+            "http://elections.wi.gov/sites/default/files/Ward%20Results_4.2.13%20Spring%20Election_Supreme%20Court%20Justice.xls", 
+            "http://elections.wi.gov/sites/default/files/Ward%20Results_4.2.13%20Spring%20Election_Supt%20Public%20Inst.xls"
          ], 
          "state_level": false, 
          "county_level": true, 
          "precinct_level": true, 
-         "portal_link": "http://gab.wi.gov/elections-voting/results/2013/spring-election", 
+         "portal_link": "http://elections.wi.gov/elections-voting/results/2013/spring-election", 
          "cong_dist_level": false, 
          "precinct_level_status": "", 
-         "user_fullname": "Vestal, Alan James", 
+         "user_fullname": "Post, Davi", 
          "direct_link": "http://gab.wi.gov/sites/default/files/Ward%20Results_4.2.13%20Spring%20Election_Supt%20Public%20Inst.xls", 
          "start_date": "2013-04-02", 
          "organization": {
@@ -3167,7 +3171,6 @@
          "direct_links": [
             "http://www.gab.wi.gov/sites/default/files/2008_SpringElection_CircuitCt_WardbyWard.xls", 
             "http://www.gab.wi.gov/sites/default/files/2008_SpringElection_CtofAppeals_WardbyWard.xls", 
-            "http://www.gab.wi.gov/sites/default/files/2008_SpringElection_Referendum_WardbyWard.xls", 
             "http://www.gab.wi.gov/sites/default/files/2008_SpringElection_SupCt_WardbyWard.xls"
          ], 
          "state_level": false, 
@@ -3176,7 +3179,7 @@
          "portal_link": "http://www.gab.wi.gov/elections-voting/results/2008/spring-election", 
          "cong_dist_level": false, 
          "precinct_level_status": "", 
-         "user_fullname": "Paulson, Eric", 
+         "user_fullname": "Post, Davi", 
          "direct_link": "", 
          "start_date": "2008-04-01", 
          "organization": {

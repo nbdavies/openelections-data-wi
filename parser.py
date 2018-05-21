@@ -11,6 +11,7 @@ import zipfile
 import cleaner
 import fetch
 
+office_set = set()
 
 output_headers = ["county", "ward", "office", "district", "total votes",
                     "party", "candidate", "votes"]
@@ -83,6 +84,7 @@ def process_xls_2000_to_2010(sheet):
             if district:        # separator was found
                 office = head
                 district = district.split()[-1]     # parse 'No. 1'
+            office_set.add(normalize_office(office))
         else:
             # (use last office)
             district = ''
@@ -347,6 +349,7 @@ def parse_office(office_string):
           District Attorney - Fond Du Lac County
           EAU CLAIRE COUNTY CIRCUIT COURT JUDGE, BRANCH 1
           RECALL STATE SENATE-29
+          RECALL STATE SENATE-21 - DEMOCRATIC
     """
     office = office_string.upper()
     office = office.replace(u'\u2015','-')   # change HORIZONTAL BAR to hyphen
@@ -361,25 +364,40 @@ def parse_office(office_string):
         district = ''
         party = ''
     
-    # Separate party from office, handle district after '-'
-    head, sep, tail = office.partition('-')
+    # Handle D.A. followed by county, or remove party
+    head, sep, tail = office.partition(' -')
     tail = tail.strip()
     if tail:
-        if tail.isdigit():
-            office = head
-            district = tail
-        elif tail.endswith(' COUNTY'):      # id 409, 2012-11-06 D.A.
+        if tail.endswith(' COUNTY'):        # id 409, 2012-11-06 D.A.
             head = head.strip()
             assert head == 'DISTRICT ATTORNEY'
-            office = tail + ' ' + head      # ____ County District Attorney 
-        elif head.endswith(' '):    # not a hyphenated name
+            office = tail + ' ' + head      # ____ County District Attorney
+        else:
             office = head
             party = tail
+
+    # Handle district after '-'
+    head, sep, tail = office.partition('-')
+    tail = tail.strip()
+    if tail.isdigit():
+        office = head
+        district = tail
     
     office = office.strip()
     party = party.replace(' PARTY', '')
     party = party.strip('0123456789-')      # remove years appended to office
+    
+    office_set.add(normalize_office(office))
     return office, district, party
+
+
+def normalize_office(office):
+    office = cleaner.clean_office(office)
+    _, sep, tail = office.rpartition(' County ')
+    office = sep + tail     # remove county name
+    head, sep, tail = office.partition(' Branch ')
+    office = head + sep     # remove branch number
+    return office.strip()
 
 
 def parse_sheet(sheet, office, sheet_index, election):
@@ -442,11 +460,8 @@ def get_result_for_json(filename):
         get_election_result(election)
 
 
-# for debugging; metadata now read from cached file
-WIOpenElectionsAPI = """
-http://openelections.net/api/v1/election/?format=json&limit=0&state__postal=WI
-""".strip()
-
+# API url: for debugging, metadata is now read from cached file
+# http://openelections.net/api/v1/election/?format=json&limit=0&state__postal=WI
 
 
 """
@@ -488,4 +503,9 @@ if __name__ == '__main__':
     else:
         ids = map(int, args)
         get_all_results(ids)
+    
+    print '\nOffices processed:'
+    offices = sorted(list(office_set))
+    print '\n'.join(offices)
+    print
 

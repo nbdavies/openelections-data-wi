@@ -89,7 +89,7 @@ Feature: WI Elections
     | candidate                     | county    | office                                        | ward                                              | votes | total |
     | Linda M. Clifford             | Walworth  | Supreme Court                                 | CITY OF WHITEWATER Wards 7 & 8                    | 27    | 46    |
     | Scattering                    | Barron    | Court Of Appeals                              | TOWN OF STANFOLD                                  | 2     | 138   |
-    | Thomas G. Grover              | Shawano   | Menominee-Shawano County Circ Ct, Branch 2    | TOWN OF ANGELICA Wards 1 - 3                      | 297   | 297   |
+    | Thomas G. Grover              | Shawano  |Menominee-Shawano County Circuit Court, Branch 2| TOWN OF ANGELICA Wards 1 - 3                      | 297   | 297   |
 
 
   Examples: 20080219__wi__primary__ward.csv
@@ -163,7 +163,7 @@ Feature: WI Elections
     | party | candidate             | county        | office                                    | ward                                              | votes | total |
     | DEM   | Tim John              | Polk          | Governor                                  | VILLAGE OF FREDERIC Wards 1 & 2                   | 5     | 28    |
     | REP   | Dan Mielke            | Marathon      | House                                     | VILLAGE OF KRONENWETTER Wards 1 - 8               | 118   | 568   |
-    | LIB   | Joseph Kexel          | Kenosha       | House                                     | VILLAGE OF PLEASANT PRAIRIE Wards 6 & 7           | 2     | 2     | 
+    | LIB   | Joseph Kexel          | Kenosha       | House                                     | VILLAGE OF PLEASANT PRAIRIE Wards 6 & 7           | 2     | 2     |
     | WIG   | Ben Manski            | Dane          | State Assembly                            | CITY OF MIDDLETON Wards 2-4                       | 33    | 33    |
     | NA    | James James           | Adams         | Governor                                  | TOWN OF BIG FLATS Ward 1                          | 1     | 2     |
 
@@ -304,7 +304,7 @@ Feature: WI Elections
     | candidate                     | county        | office                                        | ward                                          | votes | total |
     | Roger M. Hillestad            | Dunn          | Dunn County Circuit Court, Branch 1           | TOWN OF RED CEDAR WARD 1-3                            | 11    | 71    |
 
-  Examples: 20140424__wi__general__ward.csv
+  Examples: 20140401__wi__general__ward.csv
     | candidate                     | county        | office                                        | ward                                          | votes | total |
     | Gary E. Sherman               | Waupaca       | Court of Appeals                              | TOWN OF HELVETIA Wards 1 & 2                          | 44    | 44    |
     | Robert A. Kennedy, Jr.        | Florence      | Florence-Forest County Circuit Court          | TOWN OF FENCE WARD 1                                  | 24    | 46    |
