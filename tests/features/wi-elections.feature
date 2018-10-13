@@ -2,7 +2,7 @@ Feature: WI Elections
 
   Scenario Outline: Tests
     When I visit the election file
-    And I search for <party> party candidate <candidate> running for <office> <district> in the <ward> in <county>
+    And I search for <party> party candidate <candidate> running for <office> dist. <district> in the <ward> in <county>
     Then I should see <votes> out of <total>
 
   Examples: 20001107__wi__general__ward.csv
@@ -505,4 +505,3 @@ Feature: WI Elections
     | CON   | Terry Larson                  | Columbia  | Attorney General                          |           | City of PORTAGE Wards 2-3,5                   | 1     | 1     |
     | DEM   | Arvina Martin                 | Monroe    | Secretary Of State                        |           | Town of BYRON Ward 1                          | 35    | 56    |
     | REP   | Jill Millies                  | Juneau    | State Treasurer                           |           | Town of LEMONWEIR Wards 1-4                   | 24    | 85    |
-

@@ -331,6 +331,7 @@ filename,party,candidate,county,office,district,ward,votes,total
 20180403__wi__general__ward.csv,,,,,,,,
 ,,Rebecca Dallet,Kewaunee,Supreme Court,,City of ALGOMA Ward 1-6,279,432
 ,,Timothy G. Dugan,Milwaukee,Court of Appeals,1,Village of HALES CORNERS Wards 7-9,338,338
+<<<<<<< HEAD
 ,,Sandra Cardo Gorsuch,Sauk,"Sauk County Circuit Court, Branch 3",,Town of FREEDOM Ward 2,41,65
 20180814__wi__primary__ward.csv,,,,,,,,
 ,DEM,Gary R. George,Milwaukee,House,4,City of MILWAUKEE Ward 87,126,151
@@ -346,3 +347,6 @@ filename,party,candidate,county,office,district,ward,votes,total
 ,CON,Terry Larson,Columbia,Attorney General,,"City of PORTAGE Wards 2-3,5",1,1
 ,DEM,Arvina Martin,Monroe,Secretary Of State,,Town of BYRON Ward 1,35,56
 ,REP,Jill Millies,Juneau,State Treasurer,,Town of LEMONWEIR Wards 1-4,24,85
+=======
+,,Sandra Cardo Gorsuch,Sauk,"Sauk County Circuit Court, Branch 3",,Town of FREEDOM Ward 2,41,65
+>>>>>>> test-districts
